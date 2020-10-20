@@ -4,8 +4,8 @@ import App from "./App";
 //import './main.css';
 
 ReactDOM.render(
-  <main>
+  <React.Fragment>
     <App />
-  </main>,
+  </React.Fragment>,
   document.getElementById("root")
 );

@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./views/Home";
-import CriptoDetails from "./views/CriptoDetails";
-import Error404 from "./views/Error404";
+import Home from "./views/Home/Home";
+import CriptoDetails from "./views/CriptoDetails/CriptoDetails";
+import Error404 from "./views/Errors/Error404";
 
 function App() {
   return (
