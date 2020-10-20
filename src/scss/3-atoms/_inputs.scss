@@ -1,0 +1,24 @@
+%input-base {
+  border-radius: 5px;
+  padding: $space;
+  border: none;
+  &:focus {
+    outline: none;
+    border: none;
+  }
+}
+
+@mixin constructor($color1, $color2) {
+  @extend %input-base;
+  background-color: $color1;
+  color: $color2;
+  &--reverse {
+    @extend %input-base;
+    background-color: $color2;
+    color: $color1;
+  }
+}
+
+.input__control {
+  @include constructor($gray-1, $dark-2);
+}

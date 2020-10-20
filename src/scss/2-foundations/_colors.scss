@@ -1,0 +1,29 @@
+@mixin constructor($color) {
+  color: $color;
+  &__background {
+    background-color: $color;
+  }
+}
+
+.brand__1 {
+  @include constructor($brand-1);
+}
+.brand__2 {
+  @include constructor($brand-2);
+}
+.dark {
+  &--1 {
+    @include constructor($dark-1);
+  }
+  &--2 {
+    @include constructor($dark-2);
+  }
+}
+.gray {
+  &--1 {
+    @include constructor($gray-1);
+  }
+}
+.light {
+  @include constructor($light);
+}

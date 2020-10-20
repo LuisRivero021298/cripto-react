@@ -4,6 +4,8 @@ import Home from "./views/Home/Home";
 import CriptoDetails from "./views/CriptoDetails/CriptoDetails";
 import Error404 from "./views/Errors/Error404";
 
+import "./App.scss";
+
 function App() {
   return (
     <Router>

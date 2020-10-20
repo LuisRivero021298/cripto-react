@@ -1,0 +1,53 @@
+@mixin constructor($num) {
+  padding:$num;
+  &__margin{
+    margin: $num;
+  }
+  &__top{
+    padding-top: $num;
+    &--margin{
+      margin-top: $num;
+    }
+  }
+  &__bottom{
+    padding-top: $num;
+    &--margin{
+      margin-bottom: $num;
+    }
+  }
+  &__left{
+    padding-top: $num;
+    &--margin{
+      margin-left: $num;
+    }
+  }
+  &__right{
+    padding-top: $num;
+    &--margin{
+      margin-right: $num;
+    }
+  }
+}
+
+.spaced {
+  padding: $space;
+}
+.space{
+  @include constructor($space)
+}
+.space__1{
+  @include constructor($space * 1)
+}
+.space__2{
+  @include constructor($space * 2)
+}
+.space__3{
+  @include constructor($space * 3)
+}
+.space__4{
+  @include constructor($space * 4)
+}
+.space__5{
+  @include constructor($space * 5)
+}
+

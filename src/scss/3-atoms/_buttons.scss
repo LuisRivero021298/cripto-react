@@ -1,0 +1,27 @@
+%btn {
+  display: inline-block;
+  padding: $space ($space * 2);
+  margin: $space 0;
+  border-radius: 5px;
+  text-align: center;
+  border: none;
+
+  &:focus{
+    outline: none;
+  }
+}
+
+@mixin constructor($color1, $color2) {
+  @extend %btn;
+  background-color: $color1;
+  color: $color2;
+  &--reverse {
+    @extend %btn;
+    background-color: $color2;
+    color: $color1;
+  }
+}
+
+.btn__primary {
+  @include constructor($brand-1, $light);
+}

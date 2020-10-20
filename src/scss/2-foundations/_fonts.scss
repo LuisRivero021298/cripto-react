@@ -1,0 +1,33 @@
+body, html {
+  font-family: $brand-font;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color: $dark-1;
+  font-size: 16px;
+  @media (min-width: 768px){
+    font-size: 20px;
+  }
+}
+h1{
+  font-size:$h1;
+}
+h2{
+  font-size:$h2;
+}
+h3{
+  font-size:$h3;
+}
+
+h1,h2,h3{
+  margin: $space 0;
+}
+
+.bold{
+  font-weight: bolder;
+}
+p,a {
+  color: $dark-1;
+  font-size: $p;
+  margin-top: $space;
+  margin-bottom: $space;
+}
