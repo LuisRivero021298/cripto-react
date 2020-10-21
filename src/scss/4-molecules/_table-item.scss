@@ -1,0 +1,16 @@
+table { border-collapse: collapse; }
+
+.Table__item {
+  box-sizing: border-box;
+  padding: $space;
+  color: $gray-2; 
+  text-align: center;
+  font-weight: $bolder;
+  border-bottom: 1px solid $brand-1; 
+  .simule_img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #333;
+  }  
+}
