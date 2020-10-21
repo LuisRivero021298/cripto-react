@@ -4,8 +4,8 @@ import CoinItem from "./CoinItem";
 function Table({ coin }) {
   return (
     <React.Fragment>
-      <table>
-        <thead>
+      <table className="Table">
+        <thead className="Table__head">
           <tr>
             <th></th>
             <th>
@@ -15,7 +15,7 @@ function Table({ coin }) {
             <th>Price</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="Table__body">
           {coin.map((c) => {
             return <CoinItem c={c} key={c.id + c.symbol} />;
           })}

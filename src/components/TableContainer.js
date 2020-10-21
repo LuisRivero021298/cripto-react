@@ -33,7 +33,7 @@ class TableContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Table__container">
         <Table coin={this.state.listCoin} />
       </div>
     );
