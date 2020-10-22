@@ -18,6 +18,9 @@ const api = {
     list() {
       return callApi("assets?limit=20");
     },
+    coinDetail(id) {
+      return callApi(`assets/${id}`);
+    },
   },
 };
 
