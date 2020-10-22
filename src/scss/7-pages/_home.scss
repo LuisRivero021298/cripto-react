@@ -1,0 +1,32 @@
+.Home {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(70px,1fr) 78% 1fr;
+  gap: 10px;
+
+  .Header--home {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .Header__text {
+      color: $brand-1;
+      font-weight: $bolder;
+      font-size: $h2;
+      margin: 0;
+    }
+    
+  }
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+      font-size: $h3;
+      margin: 0;
+      font-weight: $bolder;
+      color: $brand-1;
+    } 
+  }
+}

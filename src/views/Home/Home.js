@@ -6,12 +6,15 @@ import TableContainer from "../../components/TableContainer";
 class Home extends Component {
   render() {
     return (
-      <React.Fragment>
-        <header className="Header">
+      <div className="Home">
+        <header className="Header--home">
           <h1 className="Header__text">CriptoStatus</h1>
         </header>
         <TableContainer />
-      </React.Fragment>
+        <footer>
+          <a href="https://github.com/LuisRivero021298">RiveroCode</a>
+        </footer>
+      </div>
     );
   }
 }

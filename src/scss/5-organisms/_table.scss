@@ -8,3 +8,12 @@
   background-color: $light;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
+.Table__head {
+  th {
+    font-weight: $bolder;
+  }
+}
+.Table td,
+.Table th {
+  text-align: center;
+}

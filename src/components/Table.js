@@ -4,7 +4,7 @@ import CoinItem from "./CoinItem";
 function Table({ coin }) {
   return (
     <React.Fragment>
-      <table className="Table">
+      <table className="Table highlight">
         <thead className="Table__head">
           <tr>
             <th></th>
