@@ -15,8 +15,8 @@ async function callApi(endPoint, options = {}) {
 
 const api = {
   assets: {
-    list() {
-      return callApi("assets?limit=20");
+    list(limitCoin) {
+      return callApi(`assets?limit=${limitCoin}`);
     },
     coinDetail(id) {
       return callApi(`assets/${id}`);

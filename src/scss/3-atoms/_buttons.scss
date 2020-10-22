@@ -25,3 +25,12 @@
 .btn__primary {
   @include constructor($brand-1, $light);
 }
+.btn--more__cripto {
+  margin: $space 0;
+  border: none;
+  background: transparent;
+}
+.btn--more__cripto:active,
+.btn--more__cripto:focus{
+  background: transparent;
+}

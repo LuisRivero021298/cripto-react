@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import styles from './TableContainer.css';
 import api from "../api";
 import Table from "./Table";
 
@@ -10,21 +9,30 @@ class TableContainer extends Component {
       loading: true,
       error: null,
       listCoin: [],
+      limitCoin: 20,
     };
   }
 
-  componentDidMount = () => {
-    this.getData();
+  handleGetMoreData = () => {
+    this.setState({ limitCoin: this.state.limitCoin + 10 });
+    this.getData(this.state.limitCoin + 10);
   };
 
-  getData = async () => {
+  componentDidMount = () => {
+    this.getData(this.state.limitCoin);
+  };
+
+  getData = async (limit = null) => {
     this.setState({
       loading: true,
       error: null,
     });
     try {
-      const { data } = await api.assets.list();
-      this.setState({ listCoin: data, loading: false });
+      const { data } = await api.assets.list(limit);
+      this.setState({
+        listCoin: data,
+        loading: false,
+      });
     } catch (error) {
       this.setState({ loading: false, error });
     }
@@ -38,6 +46,13 @@ class TableContainer extends Component {
           coin={this.state.listCoin}
           history={this.props.history}
         />
+        <button
+          onClick={this.handleGetMoreData}
+          type="button"
+          className="btn--more__cripto"
+        >
+          <i className="material-icons md-36">arrow_drop_down</i>
+        </button>
       </div>
     );
   }
