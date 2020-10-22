@@ -15,7 +15,7 @@ function useClassPercent(changePercent) {
   return parseFloat(changePercent) > 0 ? " up" : " down";
 }
 
-function CoinItem({ c, history }) {
+const CoinItem = React.memo(({ c, history }) => {
   const priceUsd = useDollarFilter(c.priceUsd);
   const changePercent = usePercentFilter(c.changePercent24Hr);
   let classPercent = "show-md";
@@ -38,5 +38,5 @@ function CoinItem({ c, history }) {
       </tr>
     </>
   );
-}
+});
 export default CoinItem;

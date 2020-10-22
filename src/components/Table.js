@@ -2,7 +2,7 @@ import React from "react";
 import CoinItem from "./CoinItem";
 import SkeletonTable from "./SkeletonTable";
 
-function Table({ coin, history, loading }) {
+const Table = React.memo(({ coin, history, loading }) => {
   return (
     <>
       <table className="Table highlight">
@@ -18,17 +18,14 @@ function Table({ coin, history, loading }) {
           </tr>
         </thead>
         <tbody className="Table__body">
-          {loading ? (
-            <SkeletonTable />
-          ) : (
-            coin.map((c) => {
-              return <CoinItem c={c} key={c.id + c.symbol} history={history} />;
-            })
-          )}
+          {coin.map((c) => {
+            return <CoinItem c={c} key={c.id + c.symbol} history={history} />;
+          })}
+          {loading && <SkeletonTable />}
         </tbody>
       </table>
     </>
   );
-}
+});
 
 export default Table;

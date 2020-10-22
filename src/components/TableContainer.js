@@ -15,22 +15,23 @@ class TableContainer extends Component {
 
   handleGetMoreData = () => {
     this.setState({ limitCoin: this.state.limitCoin + 10 });
-    this.getData(this.state.limitCoin + 10);
+    const query = `offset=${this.state.limitCoin}&limit=10`;
+    this.getData(query);
   };
 
   componentDidMount = () => {
-    this.getData(this.state.limitCoin);
+    this.getData(`limit=${this.state.limitCoin}`);
   };
 
-  getData = async (limit = null) => {
+  getData = async (query) => {
     this.setState({
       loading: true,
       error: null,
     });
     try {
-      const { data } = await api.assets.list(limit);
+      const { data } = await api.assets.list(query);
       this.setState({
-        listCoin: data,
+        listCoin: [...this.state.listCoin, ...data],
         loading: false,
       });
     } catch (error) {
