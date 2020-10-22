@@ -6,12 +6,16 @@ import CoinImage from "./CoinImage";
 function useDollarFilter(value) {
   return !value ? "$ 0" : `$ ${numeral(value).format("(# 0.00a)")}`;
 }
-
-function CoinItem({ c }) {
+function CoinItem({ c, history }) {
   const priceUsd = useDollarFilter(c.priceUsd);
+
+  const handlePushHistory = () => {
+    history.push(`/cripto/${c.id}`);
+  };
+
   return (
-    <React.Fragment>
-      <tr className="Table__item">
+    <>
+      <tr className="Table__item" onClick={handlePushHistory}>
         <td>
           <CoinImage c={c} />
         </td>
@@ -19,7 +23,7 @@ function CoinItem({ c }) {
         <td>{c.symbol}</td>
         <td>{priceUsd}</td>
       </tr>
-    </React.Fragment>
+    </>
   );
 }
 export default CoinItem;

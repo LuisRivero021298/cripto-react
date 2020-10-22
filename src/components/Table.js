@@ -1,9 +1,9 @@
 import React from "react";
 import CoinItem from "./CoinItem";
 
-function Table({ coin }) {
+function Table({ coin, history }) {
   return (
-    <React.Fragment>
+    <>
       <table className="Table highlight">
         <thead className="Table__head">
           <tr>
@@ -17,11 +17,11 @@ function Table({ coin }) {
         </thead>
         <tbody className="Table__body">
           {coin.map((c) => {
-            return <CoinItem c={c} key={c.id + c.symbol} />;
+            return <CoinItem c={c} key={c.id + c.symbol} history={history} />;
           })}
         </tbody>
       </table>
-    </React.Fragment>
+    </>
   );
 }
 

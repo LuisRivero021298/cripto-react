@@ -25,7 +25,6 @@ class TableContainer extends Component {
     try {
       const { data } = await api.assets.list();
       this.setState({ listCoin: data, loading: false });
-      console.log(data);
     } catch (error) {
       this.setState({ loading: false, error });
     }
@@ -34,7 +33,7 @@ class TableContainer extends Component {
   render() {
     return (
       <div className="Table__container">
-        <Table coin={this.state.listCoin} />
+        <Table coin={this.state.listCoin} history={this.props.history} />
       </div>
     );
   }

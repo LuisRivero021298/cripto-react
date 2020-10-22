@@ -2,8 +2,10 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: minmax(70px,1fr) 78% 1fr;
-  gap: 10px;
+  grid-template-rows: minmax(80px,1fr) 78% 1fr;
+  @media (min-width:375px ) {
+   grid-template-rows: minmax(95px,1fr) 78% 1fr; 
+  }
 
   .Header--home {
     width: 100%;

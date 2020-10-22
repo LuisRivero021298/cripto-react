@@ -10,7 +10,7 @@ class Home extends Component {
         <header className="Header--home">
           <h1 className="Header__text">CriptoStatus</h1>
         </header>
-        <TableContainer />
+        <TableContainer history={this.props.history} />
         <footer>
           <a href="https://github.com/LuisRivero021298">RiveroCode</a>
         </footer>
