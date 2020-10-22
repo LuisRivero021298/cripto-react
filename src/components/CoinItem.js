@@ -6,8 +6,20 @@ import CoinImage from "./CoinImage";
 function useDollarFilter(value) {
   return !value ? "$ 0" : `$ ${numeral(value).format("(# 0.00a)")}`;
 }
+
+function usePercentFilter(value) {
+  return !value ? "0%" : `${parseFloat(value).toFixed(2)}%`;
+}
+
+function useClassPercent(changePercent) {
+  return parseFloat(changePercent) > 0 ? " up" : " down";
+}
+
 function CoinItem({ c, history }) {
   const priceUsd = useDollarFilter(c.priceUsd);
+  const changePercent = usePercentFilter(c.changePercent24Hr);
+  let classPercent = "show-md";
+  classPercent += useClassPercent(changePercent);
 
   const handlePushHistory = () => {
     history.push(`/cripto/${c.id}`);
@@ -22,6 +34,7 @@ function CoinItem({ c, history }) {
         <td>#{c.rank}</td>
         <td>{c.symbol}</td>
         <td>{priceUsd}</td>
+        <td className={classPercent}> {changePercent}</td>
       </tr>
     </>
   );

@@ -1,20 +1,27 @@
-@import 'scss/vendors/normalize';
+@import "scss/vendors/normalize";
 
-@import 'scss/1-tokens/color';
-@import 'scss/1-tokens/typo';
-@import 'scss/1-tokens/spacing.scss';
+@import "scss/1-tokens/color";
+@import "scss/1-tokens/typo";
+@import "scss/1-tokens/spacing.scss";
 
-@import 'scss/2-foundations/colors.scss';
-@import 'scss/2-foundations/fonts.scss';
-@import 'scss/2-foundations/spacing';
+@import "scss/2-foundations/colors.scss";
+@import "scss/2-foundations/fonts.scss";
+@import "scss/2-foundations/spacing";
 
-@import 'scss/3-atoms/buttons';
-@import 'scss/3-atoms/inputs';
-@import 'scss/3-atoms/coin_image';
+@import "scss/3-atoms/buttons";
+@import "scss/3-atoms/inputs";
+@import "scss/3-atoms/coin_image";
 
-@import 'scss/4-molecules/table-item';
+@import "scss/4-molecules/table-item";
 
-@import 'scss/5-organisms/table';
+@import "scss/5-organisms/table";
 
-@import 'scss/7-pages/home';
+@import "scss/7-pages/home";
 
+/*GLOBAL CSS*/
+.show-md {
+  display: none;
+  @media (min-width: 765px) {
+    display: table-cell;
+  }
+}

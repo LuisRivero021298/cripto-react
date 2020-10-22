@@ -33,7 +33,11 @@ class TableContainer extends Component {
   render() {
     return (
       <div className="Table__container">
-        <Table coin={this.state.listCoin} history={this.props.history} />
+        <Table
+          loading={this.state.loading}
+          coin={this.state.listCoin}
+          history={this.props.history}
+        />
       </div>
     );
   }

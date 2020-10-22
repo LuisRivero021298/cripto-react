@@ -1,7 +1,8 @@
 import React from "react";
 import CoinItem from "./CoinItem";
+import SkeletonTable from "./SkeletonTable";
 
-function Table({ coin, history }) {
+function Table({ coin, history, loading }) {
   return (
     <>
       <table className="Table highlight">
@@ -13,12 +14,17 @@ function Table({ coin, history }) {
             </th>
             <th>Name</th>
             <th>Price</th>
+            <th className="show-md">Change Avg</th>
           </tr>
         </thead>
         <tbody className="Table__body">
-          {coin.map((c) => {
-            return <CoinItem c={c} key={c.id + c.symbol} history={history} />;
-          })}
+          {loading ? (
+            <SkeletonTable />
+          ) : (
+            coin.map((c) => {
+              return <CoinItem c={c} key={c.id + c.symbol} history={history} />;
+            })
+          )}
         </tbody>
       </table>
     </>
