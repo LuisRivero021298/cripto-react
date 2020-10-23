@@ -52,7 +52,6 @@ class CriptoDetails extends Component {
         loading: false,
         history: data,
       });
-      console.log(this.state.history);
     } catch (error) {
       this.setState({
         loading: false,

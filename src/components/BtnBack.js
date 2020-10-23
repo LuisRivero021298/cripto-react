@@ -1,13 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function BtnBack({ history }) {
-  const hanndleBackHistory = () => {
-    history.push("/");
-  };
+function BtnBack({}) {
   return (
-    <div className="btn__back btn--circle" onClick={hanndleBackHistory}>
-      <i className="material-icons">arrow_back</i>
-    </div>
+    <Link to="/">
+      <div className="btn__back btn--circle">
+        <i className="material-icons">arrow_back</i>
+      </div>
+    </Link>
   );
 }
 
