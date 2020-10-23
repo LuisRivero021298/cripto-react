@@ -1,19 +1,9 @@
 import React from "react";
-import numeral from "numeral";
+import useDollarFilter from "../hooks/UseDollarFilter";
+import usePercentFilter from "../hooks/UsePercentFilter";
+import useClassPercent from "../hooks/UseClassPercent";
 
 import CoinImage from "./CoinImage";
-
-function useDollarFilter(value) {
-  return !value ? "$ 0" : `$ ${numeral(value).format("(# 0.00a)")}`;
-}
-
-function usePercentFilter(value) {
-  return !value ? "0%" : `${parseFloat(value).toFixed(2)}%`;
-}
-
-function useClassPercent(changePercent) {
-  return parseFloat(changePercent) > 0 ? " up" : " down";
-}
 
 const CoinItem = React.memo(({ c, history }) => {
   const priceUsd = useDollarFilter(c.priceUsd);

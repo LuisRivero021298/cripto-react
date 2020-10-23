@@ -4,7 +4,7 @@ import api from "../../api";
 import HeaderDetails from "../../components/HeaderDetails";
 import HistoryChart from "../../components/HistoryChart";
 import Footer from "../../components/Footer";
-
+import InfoDetails from "../../components/InfoDetails";
 class CriptoDetails extends Component {
   constructor(props) {
     super(props);
@@ -74,6 +74,11 @@ class CriptoDetails extends Component {
             ) : (
               <HistoryChart data={this.state.history} />
             )}
+          </article>
+          <hr />
+          <article>
+            <h2>Information</h2>
+            <InfoDetails history={this.state.history} data={this.state.data} />
           </article>
         </section>
         <Footer />

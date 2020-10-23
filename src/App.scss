@@ -15,6 +15,7 @@
 
 @import "scss/4-molecules/table-item";
 @import "scss/4-molecules/header_detail";
+@import "scss/4-molecules/info_details";
 @import "scss/4-molecules/footer";
 
 @import "scss/5-organisms/container";
@@ -25,6 +26,12 @@
 @import "scss/7-pages/details";
 
 /*GLOBAL CSS*/
+.up {
+  color: $brand-2 !important;
+}
+.down {
+  color: #ee5555 !important;
+}
 .show-md {
   display: none;
   @media (min-width: 765px) {
