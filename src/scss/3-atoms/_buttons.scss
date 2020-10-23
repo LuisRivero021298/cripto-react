@@ -25,6 +25,9 @@
 .btn__primary {
   @include constructor($brand-1, $light);
 }
+.btn--circle {
+  border-radius: 50%; 
+}
 .btn--more__cripto {
   margin: $space 0;
   border: none;
@@ -33,4 +36,13 @@
 .btn--more__cripto:active,
 .btn--more__cripto:focus{
   background: transparent;
+}
+.btn__back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  background-color: rgba(255,255,255,.35);
+  color: #FFF;
 }

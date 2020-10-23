@@ -1,12 +1,16 @@
 import React from "react";
 
 function CoinImage({ c }) {
+  let image = "";
+  if (c.symbol) {
+    image = c.symbol.toLowerCase();
+  }
   return (
     <>
       <div className="coin_image">
         <img
-          src={`https://static.coincap.io/assets/icons/${c.symbol.toLowerCase()}@2x.png`}
-          alt=""
+          src={`https://static.coincap.io/assets/icons/${image}@2x.png`}
+          alt="coinimage"
         />
       </div>
     </>

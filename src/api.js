@@ -21,6 +21,16 @@ const api = {
     coinDetail(id) {
       return callApi(`assets/${id}`);
     },
+    historyAsset(id) {
+      const now = new Date();
+      const end = now.getTime();
+      now.setDate(now.getDate() - 1);
+      const start = now.getTime();
+
+      return callApi(
+        `assets/${id}/history?interval=h1&start=${start}&end=${end}`
+      );
+    },
   },
 };
 

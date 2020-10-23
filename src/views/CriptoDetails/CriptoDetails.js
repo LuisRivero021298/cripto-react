@@ -1,17 +1,22 @@
 import React, { Component } from "react";
 import api from "../../api";
 
-class CriptoDetails extends Component {
-  state = {
-    loading: true,
-    error: null,
-    data: {},
-  };
+import HeaderDetails from "../../components/HeaderDetails";
+import HistoryChart from "../../components/HistoryChart";
+import Footer from "../../components/Footer";
 
+class CriptoDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      error: null,
+      data: {},
+    };
+  }
   componentDidMount = () => {
     this.getDataCoin();
   };
-
   getDataCoin = async () => {
     this.setState({
       loading: true,
@@ -24,6 +29,7 @@ class CriptoDetails extends Component {
         loading: false,
         data,
       });
+      console.log(this.state.data);
     } catch (error) {
       this.setState({
         loading: false,
@@ -34,8 +40,18 @@ class CriptoDetails extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Hello from {this.state.data.id} details</h1>
+      <div className="CriptoDetail">
+        <HeaderDetails coin={this.state.data} loading={this.state.loading} />
+        <section className="Cripto__container">
+          <article>
+            {this.state.loading ? (
+              <div>Hola</div>
+            ) : (
+              <HistoryChart id={this.state.data.id} />
+            )}
+          </article>
+        </section>
+        <Footer />
       </div>
     );
   }
