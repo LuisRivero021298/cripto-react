@@ -12,24 +12,47 @@ class CriptoDetails extends Component {
       loading: true,
       error: null,
       data: {},
+      history: [],
+      id: "",
     };
   }
   componentDidMount = () => {
-    this.getDataCoin();
+    const id = this.props.match.params.idCripto;
+    this.getDataCoin(id);
+    this.getHistoryCoin(id);
   };
-  getDataCoin = async () => {
+
+  getDataCoin = async (id) => {
     this.setState({
       loading: true,
       error: null,
     });
-    const id = this.props.match.params.idCripto;
     try {
       const { data } = await api.assets.coinDetail(id);
       this.setState({
         loading: false,
         data,
       });
-      console.log(this.state.data);
+    } catch (error) {
+      this.setState({
+        loading: false,
+        error,
+      });
+    }
+  };
+
+  getHistoryCoin = async (id) => {
+    this.setState({
+      loading: true,
+      error: null,
+    });
+    try {
+      const { data } = await api.assets.historyAsset(id);
+      this.setState({
+        loading: false,
+        history: data,
+      });
+      console.log(this.state.history);
     } catch (error) {
       this.setState({
         loading: false,
@@ -39,15 +62,18 @@ class CriptoDetails extends Component {
   };
 
   render() {
+    if (this.state.error) {
+      return <div>Error</div>;
+    }
     return (
       <div className="CriptoDetail">
         <HeaderDetails coin={this.state.data} loading={this.state.loading} />
         <section className="Cripto__container">
           <article>
-            {this.state.loading ? (
+            {!this.state.history ? (
               <div>Hola</div>
             ) : (
-              <HistoryChart id={this.state.data.id} />
+              <HistoryChart data={this.state.history} />
             )}
           </article>
         </section>

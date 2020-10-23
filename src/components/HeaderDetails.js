@@ -1,5 +1,6 @@
 import React from "react";
 
+import Skeleton from "react-loading-skeleton";
 import BtnBack from "./BtnBack";
 import CoinImage from "./CoinImage";
 
@@ -8,10 +9,14 @@ function HeaderDetails({ coin, loading }) {
     <header className="Header--detail">
       <section className="Header__left">
         <BtnBack />
-        <h1>
-          {coin.id}
-          <span>{coin.symbol}</span>
-        </h1>
+        {loading ? (
+          <Skeleton width={40} />
+        ) : (
+          <h1>
+            {coin.id}
+            <span>{coin.symbol}</span>
+          </h1>
+        )}
       </section>
       <section className="Header__right">
         {loading ? <div>Hola</div> : <CoinImage c={coin} />}
