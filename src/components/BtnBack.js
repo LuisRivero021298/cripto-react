@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function BtnBack({}) {
+function BtnBack() {
   return (
-    <Link to="/">
-      <div className="btn__back btn--circle">
-        <i className="material-icons">arrow_back</i>
-      </div>
-    </Link>
+    <>
+      <Link to="/">
+        <div className="btn__back btn--circle">
+          <i className="material-icons">arrow_back</i>
+        </div>
+      </Link>
+    </>
   );
 }
 
