@@ -24,6 +24,9 @@
 
 .btn__primary {
   @include constructor($brand-1, $light);
+  &:focus {
+    background:  $brand-1;
+  }
 }
 .btn--circle {
   border-radius: 50%; 

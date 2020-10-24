@@ -1,50 +1,20 @@
 import React from "react";
 import Chart from "chart.js";
 
-function HistoryChart({ data }) {
-  const labelTimeOptions = {
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-  };
-
+const HistoryChart = React.memo(({ data }) => {
   React.useEffect(() => {
     const priceList = data
       ? data.map((p) => {
           return p.priceUsd;
         })
       : [];
-
-    const datesList = data.map((d) =>
-      new Intl.DateTimeFormat("es-PE", labelTimeOptions).format(
-        new Date(d.date)
-      )
-    );
-
-    const filterDates = () => {
-      let historyDateList = [];
-      let acum = 0;
-      for (let i = 0; i < data.length; i++) {
-        acum = acum + 1;
-        if (acum === 5) {
-          historyDateList.push(datesList[i]);
-          acum = 0;
-        } else {
-          historyDateList.push("");
-        }
-      }
-      return historyDateList;
-    };
-
-    const historyDateList = filterDates();
-
+    const datesList = new Array(24).fill(1).map(() => "");
     const container = document.getElementById("chart-history");
 
-    //const colors = ['#99FE8E', '#6fff5a'];
     new Chart(container, {
       type: "line",
       data: {
-        labels: historyDateList,
+        labels: datesList,
         datasets: [
           {
             label: "Coin price",
@@ -78,20 +48,26 @@ function HistoryChart({ data }) {
             },
           ],
         },
-
         title: {
           display: true,
+          fontFamily: "Poppins",
+          fontStyle: "normal",
+          fontColor: "#3D3D3D",
           text: "Prices usd in the last 24 h",
-          fontSize: 23,
+          fontSize: 20,
           padding: 10,
-          fontColor: "#1E1F1E",
         },
         responsive: true,
       },
     });
   });
 
-  return <canvas id="chart-history" height="80px" width="80px"></canvas>;
-}
+  return (
+    <canvas
+      id="chart-history"
+      style={{ height: "35vh", width: "99%" }}
+    ></canvas>
+  );
+});
 
 export default HistoryChart;

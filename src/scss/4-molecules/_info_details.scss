@@ -1,3 +1,9 @@
+.Info__details__container {
+  h2 {
+    text-align: center;
+    font-size: $h3;
+  }
+}
 .Info__details {
   display: grid;
   grid-template-columns: 50% 50%;

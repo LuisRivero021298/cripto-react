@@ -5,6 +5,8 @@ import HeaderDetails from "../../components/HeaderDetails";
 import HistoryChart from "../../components/HistoryChart";
 import Footer from "../../components/Footer";
 import InfoDetails from "../../components/InfoDetails";
+import CoinExchange from "../../components/CoinExchange";
+
 class CriptoDetails extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +15,8 @@ class CriptoDetails extends Component {
       error: null,
       data: {},
       history: [],
-      id: "",
+      valueExchange: 0,
+      showExchange: 0,
     };
   }
   componentDidMount = () => {
@@ -22,6 +25,10 @@ class CriptoDetails extends Component {
     this.getHistoryCoin(id);
   };
 
+  handleExchangeCoin = (e) => {
+    const value = e.target.value;
+    this.setState({ showExchange: value * this.state.data.priceUsd });
+  };
   getDataCoin = async (id) => {
     this.setState({
       loading: true,
@@ -76,9 +83,12 @@ class CriptoDetails extends Component {
             )}
           </article>
           <hr />
-          <article>
+          <article className="Info__details__container">
             <h2>Information</h2>
             <InfoDetails history={this.state.history} data={this.state.data} />
+          </article>
+          <article className="Coin__exchange__container">
+            <CoinExchange priceUsd={this.state.data.priceUsd} />
           </article>
         </section>
         <Footer />

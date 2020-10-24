@@ -1,21 +1,23 @@
 %input-base {
-  border-radius: 5px;
-  padding: $space;
-  border: none;
+  border-radius: 5px !important;
+  padding: $space !important;
+  width: auto !important;
+  height: auto !important;
+  border: none !important;
   &:focus {
-    outline: none;
-    border: none;
+    outline: none !important;
+    border: none !important;
   }
-}
+} 
 
 @mixin constructor($color1, $color2) {
   @extend %input-base;
-  background-color: $color1;
-  color: $color2;
+  background-color: $color1 !important;
+  color: $color2 !important;
   &--reverse {
-    @extend %input-base;
-    background-color: $color2;
-    color: $color1;
+    @extend %input-base ;
+    background-color: $color2 !important;
+    color: $color1 !important;
   }
 }
 
