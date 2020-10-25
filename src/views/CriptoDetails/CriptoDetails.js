@@ -76,7 +76,7 @@ class CriptoDetails extends Component {
         <HeaderDetails coin={this.state.data} loading={this.state.loading} />
         <section className="Cripto__container">
           <article>
-            {!this.state.history ? (
+            {this.state.loading ? (
               <div>Hola</div>
             ) : (
               <HistoryChart data={this.state.history} />
@@ -88,7 +88,14 @@ class CriptoDetails extends Component {
             <InfoDetails history={this.state.history} data={this.state.data} />
           </article>
           <article className="Coin__exchange__container">
-            <CoinExchange priceUsd={this.state.data.priceUsd} />
+            {!this.state.data.symbol ? (
+              <div>Loading...</div>
+            ) : (
+              <CoinExchange
+                coin={this.state.data.symbol}
+                priceUsd={this.state.data.priceUsd}
+              />
+            )}
           </article>
         </section>
         <Footer />

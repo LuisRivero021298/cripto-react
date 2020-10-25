@@ -1,27 +1,29 @@
 import React from "react";
+import numeral from "numeral";
 
-//import useDollarFilter from "../hooks/UseDollarFilter";
-
-function useShowValueExchange(value, change) {
+function useShowValueExchange(value, change, coin) {
   let newValue = "";
-  if (change === "BTC") {
-    newValue = `$ ${value}`;
+  if (change === coin) {
+    newValue = `$ ${numeral(value).format("(# 0.00000)")}`;
   } else {
-    newValue = `BTC ${value}`;
+    newValue = `${coin} ${numeral(value).format("(# 0.00000000)")}`;
   }
   return newValue;
 }
 
-function CoinExchange({ priceUsd }) {
-  const [coinToUsd, setCoinToUsd] = React.useState("BTC");
-  const [valueExchange, setValueExchange] = React.useState(0);
+const CoinExchange = React.memo(({ priceUsd, coin }) => {
+  const [coinToUsd, setCoinToUsd] = React.useState(coin);
+  const [valueExchange, setValueExchange] = React.useState("");
   const [showExchange, setShowExchange] = React.useState(0);
+
+  console.log(coin);
+  console.log(coinToUsd);
 
   const handleExchangeCoin = (e) => {
     const value = e.target.value;
     setValueExchange(value);
 
-    coinToUsd === "BTC"
+    coinToUsd === coin
       ? setShowExchange(() => {
           return value * priceUsd;
         })
@@ -32,7 +34,7 @@ function CoinExchange({ priceUsd }) {
 
   const handleChange = () => {
     setCoinToUsd(() => {
-      return coinToUsd === "BTC" ? "USD" : "BTC";
+      return coinToUsd === coin ? "USD" : coin;
     });
   };
 
@@ -46,7 +48,6 @@ function CoinExchange({ priceUsd }) {
           <input
             id="value-exchange"
             type="number"
-            placeholder="0 USD"
             value={valueExchange}
             onChange={handleExchangeCoin}
           />
@@ -54,12 +55,12 @@ function CoinExchange({ priceUsd }) {
         </div>
         <div className="col s6">
           <span className="show__exchange">
-            {useShowValueExchange(showExchange, coinToUsd)}
+            {useShowValueExchange(showExchange, coinToUsd, coin)}
           </span>
         </div>
       </div>
     </>
   );
-}
+});
 
 export default CoinExchange;
