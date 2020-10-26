@@ -1,26 +1,21 @@
-%input-base {
-  border-radius: 5px !important;
-  padding: $space !important;
-  width: auto !important;
-  height: auto !important;
-  border: none !important;
-  &:focus {
-    outline: none !important;
-    border: none !important;
-  }
-} 
-
-@mixin constructor($color1, $color2) {
-  @extend %input-base;
-  background-color: $color1 !important;
-  color: $color2 !important;
-  &--reverse {
-    @extend %input-base ;
-    background-color: $color2 !important;
-    color: $color1 !important;
-  }
+input:focus {
+  box-shadow: 0 1px 0 0 #6fff5a !important;
+  border-bottom-color: #6fff5a !important;
 }
 
-.input__control {
-  @include constructor($gray-1, $dark-2);
+input:not([type]):focus:not([readonly]) + label,
+input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="password"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="email"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="url"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="time"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="date"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="datetime"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="datetime-local"]:not(.browser-default):focus:not([readonly])
+  + label,
+input[type="tel"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="number"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="search"]:not(.browser-default):focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #6fff5a;
 }

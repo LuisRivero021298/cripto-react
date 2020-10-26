@@ -16,9 +16,6 @@ const CoinExchange = React.memo(({ priceUsd, coin }) => {
   const [valueExchange, setValueExchange] = React.useState("");
   const [showExchange, setShowExchange] = React.useState(0);
 
-  console.log(coin);
-  console.log(coinToUsd);
-
   const handleExchangeCoin = (e) => {
     const value = e.target.value;
     setValueExchange(value);
@@ -36,6 +33,8 @@ const CoinExchange = React.memo(({ priceUsd, coin }) => {
     setCoinToUsd(() => {
       return coinToUsd === coin ? "USD" : coin;
     });
+    setShowExchange(0);
+    setValueExchange("");
   };
 
   return (
