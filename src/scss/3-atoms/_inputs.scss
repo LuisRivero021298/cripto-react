@@ -1,6 +1,6 @@
 input:focus {
-  box-shadow: 0 1px 0 0 #6fff5a !important;
-  border-bottom-color: #6fff5a !important;
+  box-shadow: 0 1px 0 0 $brand-1 !important;
+  border-bottom-color: $brand-1 !important;
 }
 
 input:not([type]):focus:not([readonly]) + label,
@@ -17,5 +17,5 @@ input[type="tel"]:not(.browser-default):focus:not([readonly]) + label,
 input[type="number"]:not(.browser-default):focus:not([readonly]) + label,
 input[type="search"]:not(.browser-default):focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label {
-  color: #6fff5a;
+  color: $brand-1;
 }

@@ -82,9 +82,7 @@ class CriptoDetails extends Component {
               <HistoryChart data={this.state.history} />
             )}
           </article>
-          <hr />
           <article className="Info__details__container">
-            <h2>Information</h2>
             <InfoDetails history={this.state.history} data={this.state.data} />
           </article>
           <article className="Coin__exchange__container">

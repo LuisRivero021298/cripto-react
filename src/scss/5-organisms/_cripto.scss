@@ -1,4 +1,5 @@
 .Cripto__container {
   @extend %container; 
   display: grid;
+  gap: 15px;
 }

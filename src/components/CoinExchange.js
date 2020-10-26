@@ -1,12 +1,11 @@
 import React from "react";
-import numeral from "numeral";
 
 function useShowValueExchange(value, change, coin) {
   let newValue = "";
   if (change === coin) {
-    newValue = `$ ${numeral(value).format("(# 0.00000)")}`;
+    newValue = `$ ${value}`;
   } else {
-    newValue = `${coin} ${numeral(value).format("(# 0.00000000)")}`;
+    newValue = `${coin} ${value}`;
   }
   return newValue;
 }
@@ -43,7 +42,7 @@ const CoinExchange = React.memo(({ priceUsd, coin }) => {
         Change
       </button>
       <div className="row">
-        <div className="input-field col s6">
+        <div className="input-field col s12">
           <input
             id="value-exchange"
             type="number"
@@ -51,8 +50,6 @@ const CoinExchange = React.memo(({ priceUsd, coin }) => {
             onChange={handleExchangeCoin}
           />
           <label htmlFor="value-exchange"> {coinToUsd} </label>
-        </div>
-        <div className="col s6">
           <span className="show__exchange">
             {useShowValueExchange(showExchange, coinToUsd, coin)}
           </span>

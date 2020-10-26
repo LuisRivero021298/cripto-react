@@ -1,10 +1,9 @@
 .CriptoDetail {
-  height: 100vh;
-  background: linear-gradient(180deg, rgba(111,255,90,1) 0%, rgba(56,183,38,1) 100%); 
+  background: $light; 
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: minmax(80px,105px) 1fr 40px;
-  gap: 10px;
+  gap: 15px;
 
   hr {
     margin: 0;
@@ -13,7 +12,7 @@
   }
   footer {
     a {
-      color: $light;
+      color: $brand-1;
     }
   }
 }
