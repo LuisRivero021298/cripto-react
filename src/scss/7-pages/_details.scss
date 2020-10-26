@@ -1,8 +1,8 @@
 .CriptoDetail {
-  background: $light; 
+  background-color: $gray-light;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: minmax(80px,105px) 1fr 40px;
+  grid-template-rows: minmax(80px, 105px) 1fr 40px;
   gap: 15px;
 
   hr {

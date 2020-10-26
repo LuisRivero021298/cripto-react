@@ -14,8 +14,7 @@
 @mixin constructor($color1, $color2) {
   @extend %btn;
   background-color: $color1;
-  color: $color2;
-  &--reverse {
+  color: $color2; &--reverse {
     @extend %btn;
     background-color: $color2;
     color: $color1;
@@ -35,6 +34,7 @@
   margin: $space 0;
   border: none;
   background: transparent;
+  color: $brand-2;
 }
 .btn--more__cripto:active,
 .btn--more__cripto:focus{
@@ -46,6 +46,6 @@
   align-items: center;
   width: 35px;
   height: 35px;
-  background-color: rgba(114,209,63,.7);
+  background-color: rgba(126,87,194,.6);
   color: #FFF;
 }

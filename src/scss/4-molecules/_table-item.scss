@@ -1,5 +1,8 @@
 table {
   border-collapse: collapse;
+  tr {
+    border-color: rgba(126, 87, 194, 0.2);
+  }
 }
 
 .Table__item {
@@ -7,9 +10,8 @@ table {
   padding: $space;
   color: $gray-2;
   text-align: center;
-  font-weight: $bolder;
   a {
     color: $gray-2;
     display: contents;
-  } 
+  }
 }

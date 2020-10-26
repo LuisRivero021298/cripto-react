@@ -17,6 +17,9 @@
       font-weight: $bolder;
     }
   } 
+  &--left{ 
+    color: $brand-2;
+  }
   &--right {
     align-items: flex-end;
     span {
