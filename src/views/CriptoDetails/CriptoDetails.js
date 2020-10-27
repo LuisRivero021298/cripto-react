@@ -6,6 +6,7 @@ import HistoryChart from "../../components/HistoryChart";
 import Footer from "../../components/Footer";
 import InfoDetails from "../../components/InfoDetails";
 import CoinExchange from "../../components/CoinExchange";
+import Skeleton from "react-loading-skeleton";
 
 class CriptoDetails extends Component {
   constructor(props) {
@@ -76,18 +77,26 @@ class CriptoDetails extends Component {
         <HeaderDetails coin={this.state.data} loading={this.state.loading} />
         <section className="Cripto__container">
           <article>
-            {this.state.loading ? (
-              <div>Hola</div>
-            ) : (
-              <HistoryChart data={this.state.history} />
-            )}
+            <HistoryChart
+              data={this.state.history}
+              loading={this.state.loading}
+            />
           </article>
           <article className="Info__details__container">
-            <InfoDetails history={this.state.history} data={this.state.data} />
+            <InfoDetails
+              history={this.state.history}
+              data={this.state.data}
+              loading={this.state.loading}
+            />
           </article>
           <article className="Coin__exchange__container">
             {!this.state.data.symbol ? (
-              <div>Loading...</div>
+              <>
+                <Skeleton width={100} height={40} />
+                <br />
+                <br />
+                <Skeleton width={200} height={40} />
+              </>
             ) : (
               <CoinExchange
                 coin={this.state.data.symbol}

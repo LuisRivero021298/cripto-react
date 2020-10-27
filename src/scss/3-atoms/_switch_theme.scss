@@ -1,0 +1,25 @@
+.Switch__theme{ 
+   .Switch__btn{
+    background: $gray-1;
+    width: 50px;
+    height: 25px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &::after{
+      content: "";
+      display: inline-block;
+      width: 19px;
+      height: 19px;
+      background-color: $light;
+      border-radius: 100%;
+      position: absolute;
+      right: 4px;
+      transition-property: right, left;
+      transition-duration: 4s;
+      transition-timing-function: ease-in; 
+    }
+  }
+} 

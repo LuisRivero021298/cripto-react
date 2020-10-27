@@ -1,7 +1,10 @@
 import React from "react";
+import Skeleton from "react-loading-skeleton";
+
 import useDollarFilter from "../hooks/UseDollarFilter";
 import usePercentFilter from "../hooks/UsePercentFilter";
 import useClassPercent from "../hooks/UseClassPercent";
+import SkeletonInfo from "./SkeletonInfo";
 
 function useGetMin(history) {
   return Math.min(...history.map((h) => parseFloat(h.priceUsd).toFixed(2)));
@@ -19,7 +22,7 @@ function useGetAvg(history) {
   return subTotal / history.length;
 }
 
-function InfoDetails({ data, history }) {
+function InfoDetails({ data, history, loading }) {
   const priceUsd = useDollarFilter(data.priceUsd);
   const percentChange = usePercentFilter(data.changePercent24Hr);
   const classPercent = useClassPercent(percentChange);
@@ -37,14 +40,18 @@ function InfoDetails({ data, history }) {
         <span>Avg price</span>
         <span>Variation in 24h</span>
       </div>
-      <div className="Info__details--right">
-        <span>{data.rank}</span>
-        <span>{priceUsd}</span>
-        <span>{minPrice}</span>
-        <span>{maxPrice}</span>
-        <span>{avgPrice}</span>
-        <span className={classPercent}>{percentChange}</span>
-      </div>
+      {loading ? (
+        <SkeletonInfo />
+      ) : (
+        <div className="Info__details--right">
+          <span>{data.rank}</span>
+          <span>{priceUsd}</span>
+          <span>{minPrice}</span>
+          <span>{maxPrice}</span>
+          <span>{avgPrice}</span>
+          <span className={classPercent}>{percentChange}</span>
+        </div>
+      )}
     </div>
   );
 }

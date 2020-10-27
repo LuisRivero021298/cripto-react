@@ -1,0 +1,15 @@
+.Header--home {
+    padding: ($space * 0.5) $space;
+    background-color: $light;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, .1);
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .Header__text {
+      color: $brand-1;
+      font-weight: $bolder;
+      font-size: $h3;
+      margin: 0;
+    } 
+  }

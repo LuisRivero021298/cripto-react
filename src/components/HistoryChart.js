@@ -1,7 +1,7 @@
 import React from "react";
 import Chart from "chart.js";
 
-const HistoryChart = React.memo(({ data }) => {
+const HistoryChart = React.memo(({ data, history }) => {
   React.useEffect(() => {
     const priceList = data
       ? data.map((p) => {
@@ -63,6 +63,9 @@ const HistoryChart = React.memo(({ data }) => {
     });
   });
 
+  if (history) {
+    return <div>Loading...</div>;
+  }
   return (
     <canvas
       id="chart-history"

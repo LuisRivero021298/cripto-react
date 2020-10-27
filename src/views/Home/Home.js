@@ -8,7 +8,14 @@ class Home extends Component {
     return (
       <div className="Home">
         <header className="Header--home">
-          <h1 className="Header__text">CriptoStatus</h1>
+          <section>
+            <h1 className="Header__text">CriptoStatus</h1>
+          </section>
+          <section>
+            <div className="Switch__theme">
+              <span className="Switch__btn"></span>
+            </div>
+          </section>
         </header>
         <TableContainer history={this.props.history} />
         <Footer />

@@ -10,7 +10,10 @@ function HeaderDetails({ coin, loading }) {
       <section className="Header__left">
         <BtnBack />
         {loading ? (
-          <Skeleton width={40} />
+          <>
+            <br />
+            <Skeleton width={100} />
+          </>
         ) : (
           <h1>
             {coin.id}
@@ -19,7 +22,11 @@ function HeaderDetails({ coin, loading }) {
         )}
       </section>
       <section className="Header__right">
-        {loading ? <div>Hola</div> : <CoinImage c={coin} />}
+        {loading ? (
+          <Skeleton circle={true} height={80} width={80} />
+        ) : (
+          <CoinImage c={coin} />
+        )}
       </section>
     </header>
   );
