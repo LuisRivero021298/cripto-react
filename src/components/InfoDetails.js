@@ -1,5 +1,4 @@
 import React from "react";
-import Skeleton from "react-loading-skeleton";
 
 import useDollarFilter from "../hooks/UseDollarFilter";
 import usePercentFilter from "../hooks/UsePercentFilter";

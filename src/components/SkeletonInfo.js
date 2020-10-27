@@ -1,7 +1,7 @@
 import React from "react";
 import Skeleton from "react-loading-skeleton";
 
-function SkeletonInfo({}) {
+function SkeletonInfo() {
   return (
     <div className="Info__details--right">
       <Skeleton width={50} />

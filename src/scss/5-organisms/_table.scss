@@ -1,13 +1,23 @@
 .Table__container {
   @extend %container;
   text-align: center;
+  .btn--more__cripto {
+  	margin-bottom: 0;
+  }
 }
 .Table__head {
   th {
     font-weight: $bolder;
   }
 }
+.Table tr {
+	border: none;
+}
 .Table td,
 .Table th {
+	font-size: $body;
   text-align: center;
+}
+.Table td{
+	font-weight: $medium;
 }

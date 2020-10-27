@@ -1,9 +1,9 @@
 footer {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   a {
-    font-size: $h3;
+    font-size: $subtitle-1;
     margin: 0;
     font-weight: $bolder;
     color: $brand-1;

@@ -5,7 +5,7 @@ function BtnBack() {
   return (
     <>
       <Link to="/">
-        <div className="btn__back btn--circle">
+        <div className="btn__back--reverse btn--circle">
           <i className="material-icons">arrow_back</i>
         </div>
       </Link>
