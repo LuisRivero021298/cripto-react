@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import TableContainer from "../../components/TableContainer";
 import Footer from "../../components/Footer";
+import BtnSwitchTheme from "../../components/BtnSwitchTheme";
 
 class Home extends Component {
   render() {
@@ -12,9 +13,7 @@ class Home extends Component {
             <h1 className="Header__text">CriptoStatus</h1>
           </section>
           <section>
-            <div className="Switch__theme">
-              <span className="Switch__btn"></span>
-            </div>
+            <BtnSwitchTheme />
           </section>
         </header>
         <TableContainer history={this.props.history} />

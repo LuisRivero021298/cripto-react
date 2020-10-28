@@ -8,3 +8,7 @@
    grid-template-rows: minmax(95px,90px) 1fr 50px; 
   } 
 }
+
+.dark .Home {
+  background-color: $dark-base;
+}

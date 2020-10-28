@@ -50,7 +50,7 @@ const CoinExchange = React.memo(({ priceUsd, coin }) => {
             onChange={handleExchangeCoin}
           />
           <label htmlFor="value-exchange"> {coinToUsd} </label>
-          <span className="show__exchange">
+          <span className="Show__exchange">
             {useShowValueExchange(showExchange, coinToUsd, coin)}
           </span>
         </div>

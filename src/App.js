@@ -7,6 +7,17 @@ import Error404 from "./views/Errors/Error404";
 import "./App.scss";
 
 function App() {
+  const root = document.getElementById("root");
+  const inspectTheme = () => {
+    if (localStorage.getItem("theme") === "dark") {
+      console.log("pasa");
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+  };
+  inspectTheme();
+
   return (
     <Router>
       <Switch>
@@ -19,4 +30,3 @@ function App() {
 }
 
 export default App;
-

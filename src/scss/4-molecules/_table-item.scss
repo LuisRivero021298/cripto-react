@@ -15,3 +15,9 @@ table {
     display: contents;
   }
 }
+
+.dark .Table__item {
+  &:hover {
+    background-color: $dark-3dp;
+  }
+}

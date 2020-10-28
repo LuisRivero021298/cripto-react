@@ -5,14 +5,13 @@
   grid-template-rows: minmax(80px, 105px) 1fr 40px;
   gap: 15px;
 
-  hr {
-    margin: 0;
-    border-top: 1px solid $gray-1;
-    width: 100%;
-  }
   footer {
     a {
       color: $brand-1;
     }
   }
+}
+
+.dark .CriptoDetail {
+  background-color: $dark-base;
 }

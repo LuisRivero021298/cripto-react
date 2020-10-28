@@ -49,15 +49,7 @@ const HistoryChart = React.memo(({ data, history }) => {
             },
           ],
         },
-        title: {
-          display: true,
-          fontFamily: "Montserrat",
-          fontStyle: "normal",
-          fontColor: "#3D3D3D",
-          text: "Prices usd in the last 24 h",
-          fontSize: 20,
-          padding: 10,
-        },
+
         responsive: true,
       },
     });
@@ -67,10 +59,13 @@ const HistoryChart = React.memo(({ data, history }) => {
     return <div>Loading...</div>;
   }
   return (
-    <canvas
-      id="chart-history"
-      style={{ height: "35vh", width: "99%" }}
-    ></canvas>
+    <>
+      <span className="Title__chart">Prices usd in the last 24 h</span>
+      <canvas
+        id="chart-history"
+        style={{ height: "35vh", width: "99%" }}
+      ></canvas>
+    </>
   );
 });
 

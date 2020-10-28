@@ -1,25 +1,31 @@
-.Switch__theme{ 
-   .Switch__btn{
-    background: linear-gradient(120deg,$brand-1, $brand-2);
-    width: 50px;
-    height: 25px;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    position: relative;
+.Switch__btn {
+  background: $gray-2;
+  width: 50px;
+  height: 25px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  position: relative;
 
-    &::after{
-      content: "";
-      display: inline-block;
-      width: 19px;
-      height: 19px;
-      background-color: $light;
-      border-radius: 100%;
-      position: absolute;
-      right: 4px;
-      transition-property: right, left;
-      transition-duration: 4s;
-      transition-timing-function: ease-in; 
-    }
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background-color: $light;
+    border-radius: 100%;
+    position: absolute;
+    right: 4px;
+    transition-property: right, left;
+    transition-duration: 4s;
+    transition-timing-function: ease-in;
   }
-} 
+}
+
+.dark .Switch__btn {
+  background: linear-gradient(120deg, $brand-1, $brand-2);
+  &::after {
+    background-color: $dark-2;
+    left: 4px;
+  }
+}

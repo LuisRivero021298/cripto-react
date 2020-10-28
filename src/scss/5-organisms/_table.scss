@@ -2,7 +2,7 @@
   @extend %container;
   text-align: center;
   .btn--more__cripto {
-  	margin-bottom: 0;
+    margin-bottom: 0;
   }
 }
 .Table__head {
@@ -11,13 +11,17 @@
   }
 }
 .Table tr {
-	border: none;
+  border: none;
 }
 .Table td,
 .Table th {
-	font-size: $body;
+  font-size: $body;
   text-align: center;
 }
-.Table td{
-	font-weight: $medium;
+.Table td {
+  font-weight: $medium;
+}
+
+.dark .Table__head th {
+  color: $brand-1;
 }

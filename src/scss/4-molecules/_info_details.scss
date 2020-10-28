@@ -25,3 +25,9 @@
     }
   }
 }
+
+.dark .Info__details {
+  &--left {
+    color: $brand-1;
+  }
+}

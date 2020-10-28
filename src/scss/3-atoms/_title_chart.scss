@@ -1,0 +1,9 @@
+.Title__chart {
+  display: block;
+  margin-bottom: $space;
+  text-align: center;
+  font-size: subtitle;
+}
+.dark .Title__chart {
+  color: $light;
+}
