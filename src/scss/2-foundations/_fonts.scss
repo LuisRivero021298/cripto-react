@@ -17,13 +17,25 @@ h2{
 h3{
   font-size:$h3;
 }
+h4{
+  font-size:$h4;
+}
+h5{
+  font-size:$h5;
+}
+h6{
+  font-size:$h6;
+}
 
-h1,h2,h3{
+h1,h2,h3,h4,h5,h6{
   margin: $space 0;
 }
 
-.bold{
+.text-bold{
   font-weight:$bolder;
+}
+.text-lighten {
+  font-weight: $text-light;
 }
 p,a {
   color: $dark-1;

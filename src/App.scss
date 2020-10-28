@@ -16,15 +16,17 @@
 @import "scss/3-atoms/show-exchange";
 
 @import "scss/4-molecules/table-item";
-@import "scss/4-molecules/header_home";
-@import "scss/4-molecules/header_detail";
 @import "scss/4-molecules/info_details";
-@import "scss/4-molecules/footer";
+@import "scss/4-molecules/error404_imagen";
+@import "scss/4-molecules/error404_info";
 
+@import "scss/5-organisms/header_home";
+@import "scss/5-organisms/header_detail";
 @import "scss/5-organisms/container";
 @import "scss/5-organisms/table";
 @import "scss/5-organisms/cripto";
 @import "scss/5-organisms/coin_exchange";
+@import "scss/5-organisms/footer";
 
 @import "scss/7-pages/home";
 @import "scss/7-pages/details";

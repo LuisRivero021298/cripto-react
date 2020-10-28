@@ -1,0 +1,15 @@
+.Error404__info {
+  text-align: center;
+  
+  .Error404__text {
+    margin-top: 0;
+  }
+  .Error404__text--secondary {
+    font-size: $body;
+    display: inline-block;
+    padding: $space 0;
+  }
+  a {
+    color: $light;
+  }
+}
