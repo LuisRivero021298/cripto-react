@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import api from "../../api";
 
 import HeaderDetails from "../../components/HeaderDetails";
-import HistoryChart from "../../components/HistoryChart";
+import HistoryChartContainer from "../../components/HistoryChartContainer";
+import SkeletonExchange from "../../components/SkeletonExchange";
+import SkeletonChart from "../../components/SkeletonChart";
 import Footer from "../../components/Footer";
 import InfoDetails from "../../components/InfoDetails";
 import CoinExchange from "../../components/CoinExchange";
-import Skeleton from "react-loading-skeleton";
 
 class CriptoDetails extends Component {
   constructor(props) {
@@ -15,31 +16,29 @@ class CriptoDetails extends Component {
       loading: true,
       error: null,
       data: {},
-      history: [],
-      valueExchange: 0,
-      showExchange: 0,
+      historicList: [],
     };
   }
-  componentDidMount = () => {
+  componentDidMount = async () => {
     const id = this.props.match.params.idCripto;
-    this.getDataCoin(id);
-    this.getHistoryCoin(id);
+    this.getData(id);
   };
 
   handleExchangeCoin = (e) => {
     const value = e.target.value;
     this.setState({ showExchange: value * this.state.data.priceUsd });
   };
-  getDataCoin = async (id) => {
+
+  getData = async (id) => {
     this.setState({
       loading: true,
       error: null,
     });
     try {
-      const { data } = await api.assets.coinDetail(id);
+      await this.getDataCoin(id);
+      await this.getHistoric(id);
       this.setState({
         loading: false,
-        data,
       });
     } catch (error) {
       this.setState({
@@ -49,23 +48,17 @@ class CriptoDetails extends Component {
     }
   };
 
-  getHistoryCoin = async (id) => {
+  getDataCoin = async (id) => {
+    const { data } = await api.assets.coinDetail(id);
     this.setState({
-      loading: true,
-      error: null,
+      data,
     });
-    try {
-      const { data } = await api.assets.historyAsset(id);
-      this.setState({
-        loading: false,
-        history: data,
-      });
-    } catch (error) {
-      this.setState({
-        loading: false,
-        error,
-      });
-    }
+  };
+  getHistoric = async (id) => {
+    const { data } = await api.assets.historyAsset(id);
+    this.setState({
+      historicList: data,
+    });
   };
 
   render() {
@@ -77,26 +70,25 @@ class CriptoDetails extends Component {
         <HeaderDetails coin={this.state.data} loading={this.state.loading} />
         <section className="Cripto__container">
           <article>
-            <HistoryChart
-              data={this.state.history}
-              loading={this.state.loading}
-            />
+            {this.state.loading ? (
+              <SkeletonChart />
+            ) : (
+              <HistoryChartContainer
+                loading={this.state.loading}
+                historic={this.state.historicList}
+              />
+            )}
           </article>
           <article className="Info__details__container">
             <InfoDetails
-              history={this.state.history}
+              history={this.state.historicList}
               data={this.state.data}
               loading={this.state.loading}
             />
           </article>
           <article className="Coin__exchange__container">
             {!this.state.data.symbol ? (
-              <>
-                <Skeleton width={100} height={40} />
-                <br />
-                <br />
-                <Skeleton width={200} height={40} />
-              </>
+              <SkeletonExchange />
             ) : (
               <CoinExchange
                 coin={this.state.data.symbol}

@@ -1,17 +1,10 @@
 import React from "react";
 import Chart from "chart.js";
 
-const HistoryChart = React.memo(({ data, history }) => {
+const HistoryChart = React.memo(({ datesList, priceList }) => {
   React.useEffect(() => {
-    const priceList = data
-      ? data.map((p) => {
-          return p.priceUsd;
-        })
-      : [];
-    const datesList = new Array(24).fill(1).map(() => "");
     const container = document.getElementById("chart-history");
-
-    new Chart(container, {
+    const optionsChart = {
       type: "line",
       data: {
         labels: datesList,
@@ -49,15 +42,11 @@ const HistoryChart = React.memo(({ data, history }) => {
             },
           ],
         },
-
         responsive: true,
       },
-    });
+    };
+    new Chart(container, optionsChart);
   });
-
-  if (history) {
-    return <div>Loading...</div>;
-  }
   return (
     <>
       <span className="Title__chart">Prices usd in the last 24 h</span>

@@ -1,27 +1,13 @@
 import React from "react";
-
 import useDollarFilter from "../hooks/UseDollarFilter";
 import usePercentFilter from "../hooks/UsePercentFilter";
 import useClassPercent from "../hooks/UseClassPercent";
+import useGetMin from "../hooks/UseGetMin";
+import useGetMax from "../hooks/UseGetMax";
+import useGetAvg from "../hooks/UseGetAvg";
 import SkeletonInfo from "./SkeletonInfo";
 
-function useGetMin(history) {
-  return Math.min(...history.map((h) => parseFloat(h.priceUsd).toFixed(2)));
-}
-
-function useGetMax(history) {
-  return Math.max(...history.map((h) => parseFloat(h.priceUsd).toFixed(2)));
-}
-
-function useGetAvg(history) {
-  let subTotal = 0;
-  for (let i = 0; i < history.length; i++) {
-    subTotal += parseFloat(history[i].priceUsd);
-  }
-  return subTotal / history.length;
-}
-
-function InfoDetails({ data, history, loading }) {
+const InfoDetails = ({ data, history, loading }) => {
   const priceUsd = useDollarFilter(data.priceUsd);
   const percentChange = usePercentFilter(data.changePercent24Hr);
   const classPercent = useClassPercent(percentChange);
@@ -53,6 +39,6 @@ function InfoDetails({ data, history, loading }) {
       )}
     </div>
   );
-}
+};
 
 export default InfoDetails;

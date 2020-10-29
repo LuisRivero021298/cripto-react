@@ -1,10 +1,14 @@
 import React from "react";
 
-import Skeleton from "react-loading-skeleton";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import useColorSkeleton from "../hooks/UseColorSkeleton";
 import BtnBack from "./BtnBack";
 import CoinImage from "./CoinImage";
 
 function HeaderDetails({ coin, loading }) {
+  const root = document.getElementById("root");
+  const color = useColorSkeleton(root).color;
+  const highlightColor = useColorSkeleton(root).highlightColor;
   return (
     <header className="Header--detail">
       <section className="Header__left">
@@ -12,7 +16,9 @@ function HeaderDetails({ coin, loading }) {
         {loading ? (
           <>
             <br />
-            <Skeleton width={100} />
+            <SkeletonTheme color={color} highlightColor={highlightColor}>
+              <Skeleton width={100} height={25} />
+            </SkeletonTheme>
           </>
         ) : (
           <h1>
@@ -23,7 +29,9 @@ function HeaderDetails({ coin, loading }) {
       </section>
       <section className="Header__right">
         {loading ? (
-          <Skeleton circle={true} height={80} width={80} />
+          <SkeletonTheme color={color} highlightColor={highlightColor}>
+            <Skeleton circle={true} height={80} width={80} />
+          </SkeletonTheme>
         ) : (
           <CoinImage c={coin} />
         )}

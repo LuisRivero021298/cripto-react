@@ -1,14 +1,11 @@
 import React from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import useColorSkeleton from "../hooks/UseColorSkeleton";
 
 function SkeletonTable() {
   const root = document.getElementById("root");
-  const color = root.classList.contains("dark")
-    ? "rgba(255, 255, 255, 0.11)"
-    : "rgba(1, 1, 1, 0.11)";
-  const highlightColor = root.classList.contains("dark")
-    ? "rgba(255, 255, 255, 0.1)"
-    : "rgba(255, 255, 255, 0.1)";
+  const color = useColorSkeleton(root).color;
+  const highlightColor = useColorSkeleton(root).highlightColor;
   return new Array(10).fill(1).map((_, i) => {
     return (
       <tr key={i}>
