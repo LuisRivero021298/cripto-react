@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import api from "../api";
-import Table from "./Table";
+import api from "../../api";
+import Table from "./TableListCriptos";
 
-class TableContainer extends Component {
+class TableListCriptosContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,4 +59,4 @@ class TableContainer extends Component {
   }
 }
 
-export default TableContainer;
+export default TableListCriptosContainer;

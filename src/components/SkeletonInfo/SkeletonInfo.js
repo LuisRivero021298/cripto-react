@@ -1,6 +1,6 @@
 import React from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import useColorSkeleton from "../hooks/UseColorSkeleton";
+import useColorSkeleton from "../../hooks/UseColorSkeleton";
 
 function SkeletonInfo() {
   const root = document.getElementById("root");

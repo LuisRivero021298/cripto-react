@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import TableContainer from "../../components/TableContainer";
-import Footer from "../../components/Footer";
-import BtnSwitchTheme from "../../components/BtnSwitchTheme";
+import TableContainer from "../../components/TableListCriptos/TableListCriptosContainer";
+import Footer from "../../components/Footer/Footer";
+import BtnSwitchTheme from "../../components/BtnSwitchTheme/BtnSwitchTheme";
 
 class Home extends Component {
   render() {

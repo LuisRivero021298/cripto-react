@@ -5,6 +5,9 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  @media (min-width: 375px) {
+    align-items: center;
+  }
   .Header__text {
     color: $brand-1;
     font-weight: $bolder;

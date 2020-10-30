@@ -1,9 +1,9 @@
 import React from "react";
 
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import useColorSkeleton from "../hooks/UseColorSkeleton";
-import BtnBack from "./BtnBack";
-import CoinImage from "./CoinImage";
+import useColorSkeleton from "../../hooks/UseColorSkeleton";
+import BtnBack from "../BtnBack/BtnBack";
+import CoinImage from "../CoinImage/CoinImage";
 
 function HeaderDetails({ coin, loading }) {
   const root = document.getElementById("root");
@@ -33,7 +33,7 @@ function HeaderDetails({ coin, loading }) {
             <Skeleton circle={true} height={80} width={80} />
           </SkeletonTheme>
         ) : (
-          <CoinImage c={coin} />
+          <CoinImage cripto={coin} />
         )}
       </section>
     </header>

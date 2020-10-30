@@ -1,8 +1,8 @@
 import React from "react";
-import CoinItem from "./CoinItem";
-import SkeletonTable from "./SkeletonTable";
+import TableItemCripto from "../TableItemCripto/TableItemCripto";
+import SkeletonTable from "../SkeletonTable/SkeletonTable";
 
-const Table = React.memo(({ coin, history, loading }) => {
+const TableListCriptos = React.memo(({ coin, history, loading }) => {
   return (
     <>
       <table className="Table highlight">
@@ -19,7 +19,7 @@ const Table = React.memo(({ coin, history, loading }) => {
         </thead>
         <tbody className="Table__body">
           {coin.map((c) => {
-            return <CoinItem c={c} key={c.id + c.symbol} history={history} />;
+            return <TableItemCripto c={c} key={c.id + c.symbol} history={history} />;
           })}
           {loading && <SkeletonTable />}
         </tbody>
@@ -28,4 +28,4 @@ const Table = React.memo(({ coin, history, loading }) => {
   );
 });
 
-export default Table;
+export default TableListCriptos;

@@ -1,9 +1,17 @@
-.coin_image {
+.Coin__image {
   width: 45px;
   height: 45px;
   border-radius: 50%;
   img {
     width: 100%;
     object-fit: contain;
+  }
+}
+.CriptoDetail .Coin__image {
+	width: 70px;
+  height: 70px;
+  @media (min-width: 375px) {
+  	width: 75px;
+  	height: 75px;
   }
 }

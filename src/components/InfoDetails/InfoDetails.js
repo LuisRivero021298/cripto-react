@@ -1,11 +1,11 @@
 import React from "react";
-import useDollarFilter from "../hooks/UseDollarFilter";
-import usePercentFilter from "../hooks/UsePercentFilter";
-import useClassPercent from "../hooks/UseClassPercent";
-import useGetMin from "../hooks/UseGetMin";
-import useGetMax from "../hooks/UseGetMax";
-import useGetAvg from "../hooks/UseGetAvg";
-import SkeletonInfo from "./SkeletonInfo";
+import useDollarFilter from "../../hooks/UseDollarFilter";
+import usePercentFilter from "../../hooks/UsePercentFilter";
+import useClassPercent from "../../hooks/UseClassPercent";
+import useGetMin from "../../hooks/UseGetMin";
+import useGetMax from "../../hooks/UseGetMax";
+import useGetAvg from "../../hooks/UseGetAvg";
+import SkeletonInfo from "../SkeletonInfo/SkeletonInfo";
 
 const InfoDetails = ({ data, history, loading }) => {
   const priceUsd = useDollarFilter(data.priceUsd);
