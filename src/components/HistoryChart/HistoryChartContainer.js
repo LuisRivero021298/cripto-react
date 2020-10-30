@@ -5,10 +5,8 @@ import SkeletonChart from "../SkeletonChart/SkeletonChart";
 const HistoryChartContainer = ({historic, loading}) => {
   const [priceList, setPriceList] = React.useState([]);
   const [datesList, setDatesList] = React.useState([]);
-  
-  React.useEffect(() => setOptionsCharts(), [historic]);
-
-  const setOptionsCharts = () => {
+ 
+  const setOptionsCharts = (historic) => {
     setPriceList(() => 
       historic ? 
       historic.map((p) => p.priceUsd)
@@ -16,6 +14,8 @@ const HistoryChartContainer = ({historic, loading}) => {
     )
     setDatesList(new Array(24).fill(1).map(() => ""));
   };
+
+  React.useEffect(() => setOptionsCharts(historic), [historic]);
 
   const optionsChart = {
     type: "line",
