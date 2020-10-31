@@ -6,6 +6,9 @@
   display: flex;
   align-items: center;
   position: relative;
+  &:hover {
+    cursor: pointer;
+  }
 
   &::after {
     content: "";

@@ -1,5 +1,12 @@
 .Cripto__container {
   @extend %container; 
   display: grid;
-  gap: 15px;
+  row-gap: 15px;
+  grid-template-areas: "chart" "info" "exchange";
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr 420px;
+    grid-template-areas: "chart chart chart" 
+                         "info info exchange"; 
+  }
 }

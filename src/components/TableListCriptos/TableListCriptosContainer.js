@@ -5,11 +5,12 @@ import Table from "./TableListCriptos";
 class TableListCriptosContainer extends Component {
   constructor(props) {
     super(props);
+    const heightSize = window.screen.height;
     this.state = {
       loading: true,
       error: null,
       listCoin: [],
-      limitCoin: 20,
+      limitCoin: heightSize > 1300 ? 20 : 10,
     };
   }
 
@@ -34,6 +35,7 @@ class TableListCriptosContainer extends Component {
         listCoin: [...this.state.listCoin, ...data],
         loading: false,
       });
+      console.log(this.state.listCoin);
     } catch (error) {
       this.setState({ loading: false, error });
     }

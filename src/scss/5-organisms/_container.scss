@@ -6,6 +6,11 @@
   background-color: $light;
   box-shadow: 0px 0px 5px rgba(200, 200, 200, 0.3);
   border-radius: 15px;
+  @media (min-width: 1080px) {
+    width: 80%;
+    border-radius: 10px;
+    padding: $space * 2.5;
+  }
 }
 
 .dark %container {

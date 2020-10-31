@@ -1,7 +1,12 @@
 .Header--detail {
-  padding: ($space*1.5) ($space * 2);
+  padding: ($space*1.5) 0;
+  width: 92%;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 90px;  
+@media (min-width: 1080px) {
+    width: 80%;
+  }
 
   .Header__left {
     h1 {

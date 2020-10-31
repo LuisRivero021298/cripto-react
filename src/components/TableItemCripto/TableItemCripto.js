@@ -7,6 +7,7 @@ import CoinImage from "../CoinImage/CoinImage";
 
 const TableItemCripto = React.memo(({ c, history }) => {
   const priceUsd = useDollarFilter(c.priceUsd);
+  const marketCap = useDollarFilter(c.marketCapUsd);
   const changePercent = usePercentFilter(c.changePercent24Hr);
   let classPercent = "show-md";
   classPercent += useClassPercent(changePercent);
@@ -17,14 +18,15 @@ const TableItemCripto = React.memo(({ c, history }) => {
 
   return (
     <>
-      <tr className="Table__item" onClick={ handlePushHistory }>
-        <td>
+      <tr className="Table__item" onClick={handlePushHistory}>
+        <td className="center__content">
           <CoinImage cripto={c} />
         </td>
-        <td>#{ c.rank }</td>
-        <td>{ c.symbol }</td>
-        <td>{ priceUsd }</td>
-        <td className={ classPercent }>{ changePercent }</td>
+        <td>#{c.rank}</td>
+        <td>{c.symbol}</td>
+        <td>{priceUsd}</td>
+        <td className="show-md">{marketCap}</td>
+        <td className={classPercent}>{changePercent}</td>
       </tr>
     </>
   );

@@ -8,10 +8,13 @@
   @media (min-width: 375px) {
     align-items: center;
   }
+  @media (min-width: 1080px) {
+    width: 80%;
+  }
   .Header__text {
     color: $brand-1;
     font-weight: $bolder;
     font-size: $subtitle-1;
     margin: 0;
-  } 
+  }
 }

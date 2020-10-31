@@ -62,7 +62,7 @@ class CriptoDetails extends Component {
       <div className="CriptoDetail">
         <HeaderDetails coin={this.state.data} loading={this.state.loading} />
         <section className="Cripto__container">
-          <article>
+          <article className="Chart__container">
             <HistoryChartContainer
               loading={this.state.loading}
               historic={this.state.historicList}
