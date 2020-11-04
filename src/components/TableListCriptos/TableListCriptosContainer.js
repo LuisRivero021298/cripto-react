@@ -35,7 +35,6 @@ class TableListCriptosContainer extends Component {
         listCoin: [...this.state.listCoin, ...data],
         loading: false,
       });
-      console.log(this.state.listCoin);
     } catch (error) {
       this.setState({ loading: false, error });
     }

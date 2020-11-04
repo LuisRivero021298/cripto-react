@@ -10,7 +10,6 @@ function App() {
   const root = document.getElementById("root");
   const inspectTheme = () => {
     if (localStorage.getItem("theme") === "dark") {
-      console.log("pasa");
       root.classList.add("dark");
     } else {
       root.classList.remove("dark");

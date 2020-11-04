@@ -10,7 +10,7 @@ function HeaderDetails({ coin, loading }) {
   const color = useColorSkeleton(root).color;
   const highlightColor = useColorSkeleton(root).highlightColor;
   return (
-    <header className="Header--detail">
+    <header className="Header--detail animate__animated animate__fadeInRight">
       <section className="Header__left">
         <BtnBack />
         {loading ? (
