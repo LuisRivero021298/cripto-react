@@ -34,6 +34,11 @@ const SkeletonTable = () => {
             <Skeleton width={60} />
           </SkeletonTheme>
         </td>
+        <td className="show-md">
+          <SkeletonTheme color={color} highlightColor={highlightColor}>
+            <Skeleton width={60} />
+          </SkeletonTheme>
+        </td>
       </tr>
     );
   });
