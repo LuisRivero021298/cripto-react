@@ -2,7 +2,7 @@ import React from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import useColorSkeleton from "../../hooks/UseColorSkeleton";
 
-function SkeletonExchange() {
+const SkeletonExchange = () => {
   const root = document.getElementById("root");
   const color = useColorSkeleton(root).color;
   const highlightColor = useColorSkeleton(root).highlightColor;

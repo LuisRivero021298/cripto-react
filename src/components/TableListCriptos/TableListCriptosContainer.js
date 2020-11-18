@@ -1,63 +1,56 @@
-import React, { Component } from "react";
+import React, { useEffect, useState} from "react";
 import api from "../../api";
 import Table from "./TableListCriptos";
 
-class TableListCriptosContainer extends Component {
-  constructor(props) {
-    super(props);
-    const heightSize = window.screen.height;
-    this.state = {
-      loading: true,
-      error: null,
-      listCoin: [],
-      limitCoin: heightSize > 1300 ? 20 : 10,
-    };
-  }
+const TableListCriptosContainer = (props) => {
+  const heightSize = window.screen.height;
+  const [limitCoin, setLimitCoin] = useState(heightSize > 1300 ? 20 : 10);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [listCoin, setListCoin] = useState([]);
 
-  handleGetMoreData = () => {
-    this.setState({ limitCoin: this.state.limitCoin + 10 });
-    const query = `offset=${this.state.limitCoin}&limit=10`;
-    this.getData(query);
+  const handleGetMoreData = () => {
+    setLimitCoin(limitCoin + 10);
+    const query = `offset=${limitCoin}&limit=10`;
+    getData(query);
   };
 
-  componentDidMount = () => {
-    this.getData(`limit=${this.state.limitCoin}`);
-  };
-
-  getData = async (query) => {
-    this.setState({
-      loading: true,
-      error: null,
-    });
+  const getData = async (query) => {
+    setLoading(true);
+    setError(null);
     try {
       const { data } = await api.assets.list(query);
-      this.setState({
-        listCoin: [...this.state.listCoin, ...data],
-        loading: false,
-      });
+      setListCoin([...data]);
+      setLoading(false);
     } catch (error) {
-      this.setState({ loading: false, error });
+      setLoading(false);
+      setError(error);
     }
   };
 
-  render() {
-    return (
-      <div className="Table__container">
-        <Table
-          loading={this.state.loading}
-          coin={this.state.listCoin}
-          history={this.props.history}
-        />
-        <button
-          onClick={this.handleGetMoreData}
-          type="button"
-          className="btn--more__cripto"
-        >
-          <i className="material-icons md-36">arrow_drop_down</i>
-        </button>
-      </div>
-    );
+  useEffect(() => {
+    getData(`limit=${limitCoin}`);
+  }, [limitCoin])
+   
+  if(error) {
+    console.log(error);
   }
+  return (
+    <div className="Table__container">
+      <Table
+        loading={loading}
+        coin={listCoin}
+        history={props.history}
+      />
+      <button
+        onClick={handleGetMoreData}
+        type="button"
+        className="btn--more__cripto"
+      >
+        <i className="material-icons md-36">arrow_drop_down</i>
+      </button>
+    </div>
+  );
 }
 
 export default TableListCriptosContainer;

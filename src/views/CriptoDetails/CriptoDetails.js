@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../../api";
 
 import HeaderDetails from "../../components/HeaderDetails/HeaderDetails";
@@ -7,85 +7,69 @@ import Footer from "../../components/Footer/Footer";
 import InfoDetails from "../../components/InfoDetails/InfoDetails";
 import CoinExchangeContainer from "../../components/CoinExchange/CoinExchangeContainer";
 
-class CriptoDetails extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true,
-      error: null,
-      data: {},
-      historicList: [],
+const CriptoDetails = (props) => {
+  const id = props.match.params.idCripto;
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [data, setData] = useState({});
+  const [historicList, setHistoricList] = useState([]);
+
+  useEffect(()=> {
+    const getData = async (id) => {
+      setLoading(true);
+      setError(null);
+      try {
+        await getDataCoin(id);
+        await getHistoric(id);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        setError(error);
+      }
     };
-  }
-  componentDidMount = async () => {
-    const id = this.props.match.params.idCripto;
-    this.getData(id);
-  };
+    getData(id)
+  }, [id]);
 
-  getData = async (id) => {
-    this.setState({
-      loading: true,
-      error: null,
-    });
-    try {
-      await this.getDataCoin(id);
-      await this.getHistoric(id);
-      this.setState({
-        loading: false,
-      });
-    } catch (error) {
-      this.setState({
-        loading: false,
-        error,
-      });
-    }
-  };
-
-  getDataCoin = async (id) => {
+  const getDataCoin = async (id) => {
     const { data } = await api.assets.coinDetail(id);
-    this.setState({
-      data,
-    });
+    setData(data);
+
   };
-  getHistoric = async (id) => {
+  const getHistoric = async (id) => {
     const { data } = await api.assets.historyAsset(id);
-    this.setState({
-      historicList: data,
-    });
+    setHistoricList(data);
   };
 
-  render() {
-    if (this.state.error) {
-      return <div>Error</div>;
-    }
-    return (
-      <div className="CriptoDetail">
-        <HeaderDetails coin={this.state.data} loading={this.state.loading} />
-        <section className="Cripto__container animate__animated animate__fadeInRight">
-          <article className="Chart__container">
-            <HistoryChartContainer
-              loading={this.state.loading}
-              historic={this.state.historicList}
-            />
-          </article>
-          <article className="Info__details__container">
-            <InfoDetails
-              history={this.state.historicList}
-              data={this.state.data}
-              loading={this.state.loading}
-            />
-          </article>
-          <article className="Coin__exchange__container">
-            <CoinExchangeContainer
-              coin={this.state.data.symbol}
-              priceUsd={this.state.data.priceUsd}
-            />
-          </article>
-        </section>
-        <Footer />
-      </div>
-    );
+  if (error) {
+    return <div>Error</div>;
   }
+  return (
+    <div className="CriptoDetail">
+      <HeaderDetails coin={data} loading={loading} />
+      <section className="Cripto__container animate__animated animate__fadeInRight">
+        <article className="Chart__container">
+          <HistoryChartContainer
+            loading={loading}
+            historic={historicList}
+          />
+        </article>
+        <article className="Info__details__container">
+          <InfoDetails
+            history={historicList}
+            data={data}
+            loading={loading}
+          />
+        </article>
+        <article className="Coin__exchange__container">
+          <CoinExchangeContainer
+            coin={data.symbol}
+            priceUsd={data.priceUsd}
+          />
+        </article>
+      </section>
+      <Footer />
+    </div>
+  );
 }
 
 export default CriptoDetails;

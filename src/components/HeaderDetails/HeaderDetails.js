@@ -5,7 +5,7 @@ import useColorSkeleton from "../../hooks/UseColorSkeleton";
 import BtnBack from "../BtnBack/BtnBack";
 import CoinImage from "../CoinImage/CoinImage";
 
-function HeaderDetails({ coin, loading }) {
+const HeaderDetails = ({ coin, loading }) => {
   const root = document.getElementById("root");
   const color = useColorSkeleton(root).color;
   const highlightColor = useColorSkeleton(root).highlightColor;
