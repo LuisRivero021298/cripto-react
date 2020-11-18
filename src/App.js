@@ -8,7 +8,6 @@ import "./App.scss";
 
 const App = () => {
   const root = document.getElementById("root");
-  console.log("Hello from branch");
   const inspectTheme = () => {
     if (localStorage.getItem("theme") === "dark") {
       root.classList.add("dark");
