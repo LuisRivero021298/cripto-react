@@ -7,7 +7,7 @@ const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-const publicPath = 'http://localhost:5500/dist/';
+const publicPath = 'https://criptostatusreact.netlify.app/';
 
 module.exports = {
   entry: {
